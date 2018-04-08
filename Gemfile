@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0'
+gem 'octicons_helper'
 gem 'devise'
 
 group :development, :test do
