@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '~> 1.1.0.pre', require: false
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0'
