@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Device #1
+  uuid: fedcba
+  user: one
+  last_seen_at: 2019-07-05 22:42:25
+
+two:
+  name: Device #2
+  uuid: abcdef
+  user: two
+  last_seen_at: 2019-07-05 22:42:26
