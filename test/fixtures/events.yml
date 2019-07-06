@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  command: 502
+  data:
+  description: System Error
+  priority: critical
+  partition:
+  zone:
+  timestamp: 2019-07-06 10:42:40
+  device: one
+
+two:
+  command: 606
+  data: 002
+  description: 'Zone Fault Restore [Zone: 002]'
+  priority: medium
+  partition:
+  zone: 002
+  timestamp: 2019-07-06 10:42:40
+  device: two
