@@ -23,6 +23,7 @@
               <th>Name</th>
               <th>UUID</th>
               <th>Last seen at</th>
+              <th>Events</th>
               <th width='14%'>Actions</th>
             </tr>
           </thead>
@@ -33,6 +34,7 @@
                 <td><%= device.name %></td>
                 <td><%= device.uuid %></td>
                 <td><%= device.last_seen_at %></td>
+                <td><%= link_to(device.events.count, device_events_path(device)) %></td>
                 <td>
                   <%= link_to(edit_device_path(device), class: 'btn btn-sm btn-secondary') do %>
                     <%= octicon 'pencil', fill: 'white' %> Edit
