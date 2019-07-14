@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :devices
+
+  include UserAuthTokenGeneration
+
+  after_create :regenerate_auth_token!
 end
