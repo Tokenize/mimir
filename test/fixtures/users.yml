@@ -8,8 +8,10 @@ one:
   email: user1@example.com
   first_name: User
   last_name: One
+  auth_token: foo
 
 two:
   email: user2@example.com
   first_name: User
   last_name: Two
+  auth_token: bar
