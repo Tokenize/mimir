@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, constraints: lambda { |req| req.format == :json }  do
     resources :events, only: :create
+    resources :devices, only: :update
   end
 
   resources :devices do
