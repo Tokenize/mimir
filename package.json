@@ -1,5 +1,22 @@
 {
   "name": "mimir",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "^4.2.2",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "popper.js": "^1.16.0",
+    "turbolinks": "^5.2.0"
+  },
+  "devDependencies": {
+    "global-prefix": "^3.0.0",
+    "lodash-webpack-plugin": "^0.11.5",
+    "resolve-cwd": "^2.0.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
 }
