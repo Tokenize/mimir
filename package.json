@@ -17,6 +17,7 @@
     "lodash-webpack-plugin": "^0.11.5",
     "resolve-cwd": "^2.0.0",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   }
 }
