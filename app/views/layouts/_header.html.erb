@@ -1,28 +1,13 @@
-<nav class='navbar navbar-expand-sm navbar-light bg-light'>
-  <div class='container'>
-    <%= link_to('Mimir', root_path, class: 'navbar-brand') %>
-    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navigationBar' aria-controls='navigationBar' aria-expanded='false' aria-label='Navigation'>
-      <span class='navbar-toggler-icon'></span>
-    </button>
+<nav class='flex items-center justify-between px-4 py-3 bg-teal-900'>
+  <div>
+    <%= link_to('Mimir', root_path, class: 'text-gray-100 font-semibold') %>
+  </div>
+  <div>
     <% if user_signed_in? %>
-      <div class='collapse navbar-collapse' id='navigationBar'>
-        <ul class='navbar-nav ml-auto'>
-          <li class='nav-item'>
-            <%= link_to(edit_user_registration_path(current_user), class: 'nav-link') do %>
-              <%= octicon 'person' %>
-            <% end %>
-          </li>
-          <li class='nav-item dropdown'>
-            <a class='nav-link dropdown-toggle' href='#' id='dropDownMenu' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-              <%= octicon 'gear' %>
-            </a>
-            <div class='dropdown-menu' aria-labelledby='dropDownMenu'>
-              <%= link_to('Devices', devices_path, class: 'dropdown-item') %>
-              <div class='dropdown-divider'></div>
-              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item') %>
-            </div>
-          </li>
-        </ul>
+      <div class='flex items-center text-gray-100'>
+        <%= link_to('Profile', edit_user_registration_path(current_user), class: 'px-1 py-1 block rounded hover:bg-teal-800') %>
+        <%= link_to('Devices', devices_path, class: 'px-1 py-1 blockrounded hover:bg-teal-800') %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'px-1 py-1 ml-2 block rounded border border-gray-200 border-dotted hover:bg-teal-800') %>
       </div>
     <% end %>
   </div>
