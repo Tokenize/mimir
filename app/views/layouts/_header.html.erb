@@ -6,7 +6,7 @@
     <% if user_signed_in? %>
       <div class='flex items-center text-gray-100'>
         <%= link_to('Profile', edit_user_registration_path(current_user), class: 'px-1 py-1 block rounded hover:bg-teal-800') %>
-        <%= link_to('Devices', devices_path, class: 'px-1 py-1 blockrounded hover:bg-teal-800') %>
+        <%= link_to('Devices', devices_path, class: 'px-1 py-1 block rounded hover:bg-teal-800') %>
         <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'px-1 py-1 ml-2 block rounded border border-gray-200 border-dotted hover:bg-teal-800') %>
       </div>
     <% end %>
