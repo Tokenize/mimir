@@ -1,21 +1,21 @@
 <div class='flex justify-center md:mt-20'>
   <%= form_for(device, class: 'form-horizontal', html: { class: 'w-full sm:max-w-md bg-gray-100 z-10 shadow-md rounded p-8' }) do |form| %>
-      <div class='flex items-center mb-3'>
-        <div class='w-1/4'>
-          <%= form.label(:uuid, 'UUID', class: 'block text-sm font-semibold') %>
-        </div>
-        <div class='w-3/4'>
-          <%= form.text_field(:uuid, class: 'border rounded w-full appearance-none text-sm text-gray-700', disabled: true) %>
-        </div>
+    <div class='flex items-center mb-3'>
+      <div class='w-1/4'>
+        <%= form.label(:uuid, 'UUID', class: 'block text-sm font-semibold') %>
       </div>
-      <div class='flex items-center mb-3'>
-        <div class='w-1/4'>
-          <%= form.label(:name, class: 'block text-sm font-semibold') %>
-        </div>
-        <div class='w-3/4'>
-          <%= form.text_field(:name, autofocus: true, class: 'border rounded w-full appearance-none text-sm text-gray-700') %>
-        </div>
+      <div class='w-3/4'>
+        <%= form.text_field(:uuid, class: 'border rounded w-full appearance-none text-sm text-gray-700', disabled: true) %>
       </div>
+    </div>
+    <div class='flex items-center mb-3'>
+      <div class='w-1/4'>
+        <%= form.label(:name, class: 'block text-sm font-semibold') %>
+      </div>
+      <div class='w-3/4'>
+        <%= form.text_field(:name, autofocus: true, class: 'border rounded w-full appearance-none text-sm text-gray-700') %>
+      </div>
+    </div>
     <div class='pt-4 border-t border-black'>
       <div class='flex justify-between'>
         <%= link_to('Cancel', devices_path, class: 'block p-1 rounded bg-teal-300 hover:bg-teal-200 text-sm text-gray-900') %>
