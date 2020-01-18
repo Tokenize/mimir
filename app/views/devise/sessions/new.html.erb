@@ -29,8 +29,8 @@
     <% end -%>
     <div class='pt-4 border-t border-black'>
       <div class='flex justify-between'>
-        <%= f.submit 'Log in', class: 'block p-1 rounded bg-teal-900 hover:bg-teal-800 text-sm text-gray-300' %>
         <%= link_to('Sign up', new_registration_path(resource_name), class: 'block p-1 rounded bg-teal-300 hover:bg-teal-200 text-sm text-gray-900') %>
+        <%= f.submit 'Log in', class: 'block p-1 rounded bg-teal-900 hover:bg-teal-800 text-sm text-gray-300' %>
       </div>
     </div>
   <% end %>
