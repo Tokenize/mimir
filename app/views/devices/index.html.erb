@@ -1,53 +1,51 @@
-<% if flash[:notice].present? %>
-  <div class='alert alert-info'>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<div class='flex flex-row-reverse px-4 py-3'>
+</div>
 
-<div class='row'>
-  <div class='col-sm-10 offset-sm-1'>
-    <div class='card'>
-      <div class='card-header'>
-        Devices
-        <div class='float-right'>
-          <%= link_to(new_device_path, class: 'btn btn-primary btn-sm') do %>
-            <%= octicon 'plus', fill: 'white' %> Device
-          <% end %>
+<div class='flex flex-col'>
+  <% @devices.each do |device| %>
+    <div class='mx-auto sm:flex'>
+      <div class='sm:min-w-lg p-4 bg-gray-100 shadow-md rounded'>
+        <div class='flex justify-between border-b-2 border-black'>
+          <p class='font-semibold text-sm'><%= device.name %>
+          <p class='font-thin text-xs'><%= device_last_seen(device) %></p>
+        </div>
+        <div class='pt-4'>
+          <div class='flex justify-between'>
+            <p class='font-semibold text-sm'>UUID</p>
+            <p class='font-thin text-xs'><%= device.uuid %></p>
+          </div>
+        </div>
+        <div>
+          <div class='flex justify-between border-b-2 border-black'>
+            <p class='font-semibold text-sm'>Auth Token</p>
+            <p class='font-thin text-xs'><%= device.user.auth_token %></p>
+          </div>
+        </div>
+        <div class='pt-4'>
+          <div class='pb-1 flex justify-between'>
+            <p class='text-sm font-semibold'>Newest events</p>
+            <p class='font-thin text-xs'><%= pluralize(device.events.count, "total event") %></p>
+          </div>
+          <ul class='w-full whitespace-no-wrap sm:w-auto overflow-auto'>
+            <% newest_events_for_device(device).each do |event| %>
+              <li class='sm:flex sm:justify-between'>
+                <span class='text-xs font-hairline sm:mr-4'><%= event.description %></span>
+                <span class='text-xs font-hairline'><%= event.timestamp %></span>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </div>
-      <div class='card-body'>
-        <table class='table table-striped table-sm table-bordered'>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>UUID</th>
-              <th>Last seen at</th>
-              <th>Events</th>
-              <th width='14%'>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @devices.each do |device| %>
-              <tr>
-                <td><%= device.id %></td>
-                <td><%= device.name %></td>
-                <td><%= device.uuid %></td>
-                <td><%= device.last_seen_at %></td>
-                <td><%= link_to(device.events.count, device_events_path(device)) %></td>
-                <td>
-                  <%= link_to(edit_device_path(device), class: 'btn btn-sm btn-secondary') do %>
-                    <%= octicon 'pencil', fill: 'white' %> Edit
-                  <% end %>
-                  <%= link_to(device_path(device), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger') do %>
-                    <%= octicon 'trashcan', fill: 'white' %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <div class='pt-2 ml-2 mr-2 sm:p-0 flex sm:flex-col justify-between'>
+        <div>
+          <%= link_to('+ Device', new_device_path, class: 'inline-block sm:block p-1 mb-2 rounded bg-teal-900 hover:bg-teal-800 text-sm text-gray-300') %>
+          <%= link_to('Edit', edit_device_path(device), class: 'inline-block sm:block p-1 mb-2 rounded bg-teal-300 hover:bg-teal-200 text-sm text-gray-900') %>
+          <%= link_to('Events', device_events_path(device), class: 'inline-block sm:block p-1 rounded bg-gray-200 hover:bg-gray-100 text-sm text-gray-900') %>
+        </div>
+        <div>
+          <%= link_to('Delete', device_path(device), method: :delete, data: { confirm: 'Are you sure?'}, class: 'inline-block sm:block p-1 rounded bg-red-300 hover:bg-red-200 text-sm text-gray-900') %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>

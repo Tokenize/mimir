@@ -19,4 +19,8 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-require('bootstrap')
+import('tailwindcss/base')
+import('tailwindcss/components')
+import('tailwindcss/utilities')
+
+require('../../assets/stylesheets/application.scss')

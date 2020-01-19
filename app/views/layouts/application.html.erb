@@ -11,10 +11,9 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/header' %>
+    <%= render partial: 'shared/header' %>
+    <%= render partial: 'shared/alerts' %>
 
-    <div class='container mt-4'>
-      <%= yield %>
-    </div>
+    <%= yield %>
   </body>
 </html>
