@@ -6,11 +6,11 @@ class DevicesController < ApplicationController
   end
 
   def new
-    @device = current_user.devices.build(uuid: SecureRandom.uuid)
+    @device = current_user.devices.build
   end
 
   def create
-    @device = current_user.devices.build(device_params)
+    @device = current_user.devices.build(device_params.merge(uuid: SecureRandom.uuid))
 
     if @device.save
       redirect_to devices_path, notice: "Device has been successfully created."
@@ -39,7 +39,7 @@ class DevicesController < ApplicationController
   protected
 
   def device_params
-    params.require(:device).permit(:name, :uuid)
+    params.require(:device).permit(:name)
   end
 
   def load_device
