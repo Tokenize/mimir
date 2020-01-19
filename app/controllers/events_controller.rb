@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
+  include Pagy::Backend
+
   before_action :load_device, only: :index
 
   def index
-    @events = @device.events
+    @pagy, @events = pagy(@device.events.order(timestamp: :desc))
   end
 
   protected
