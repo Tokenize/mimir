@@ -1,37 +1,28 @@
-<div class='row'>
-  <div class='col-sm-10 offset-sm-1'>
-    <div class='card'>
-      <div class='card-header'>
-        Events
-      </div>
-      <div class='card-body'>
-        <table class='table table-striped table-sm table-bordered'>
-          <thead>
-            <tr>
-              <th>Command</th>
-              <th>Data</th>
-              <th>Description</th>
-              <th>Timestamp</th>
-              <th>Priority</th>
-              <th>Partition</th>
-              <th>Zone</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @events.each do |event| %>
-              <tr>
-                <td><%= event.command %></td>
-                <td><%= event.data %></td>
-                <td><%= event.description %></td>
-                <td><%= event.timestamp %></td>
-                <td><%= event.priority %></td>
-                <td><%= event.partition %></td>
-                <td><%= event.zone %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+<div class='sm:w-full sm:flex sm:justify-center p-4'>
+  <table class='table-fixed overflow-auto text-sm'>
+    <thead>
+      <tr class='text-justify'>
+        <th class='px-2 py-1 hidden md:table-cell'>Command</th>
+        <th class='px-2 py-1 hidden md:table-cell'>Data</th>
+        <th class='px-2 py-1'>Description</th>
+        <th class='px-2 py-1'>Timestamp</th>
+        <th class='px-2 py-1'>Priority</th>
+        <th class='px-2 py-1 hidden md:table-cell'>Partition</th>
+        <th class='px-2 py-1 hidden md:table-cell'>Zone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td class='border hidden md:table-cell'><%= event.command %></td>
+          <td class='border hidden md:table-cell'><%= event.data %></td>
+          <td class='border'><%= event.description %></td>
+          <td class='border'><%= event.timestamp %></td>
+          <td class='border'><%= event.priority %></td>
+          <td class='border hidden md:table-cell'><%= event.partition %></td>
+          <td class='border hidden md:table-cell'><%= event.zone %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
