@@ -2,7 +2,7 @@ class DevicesController < ApplicationController
   before_action :load_device, only: %i(edit update destroy)
 
   def index
-    @devices = current_user.devices
+    @devices = current_user.devices.order(updated_at: :desc, last_seen_at: :desc)
   end
 
   def new
