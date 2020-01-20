@@ -3,7 +3,7 @@
 
 <div class='flex flex-col'>
   <% @devices.each do |device| %>
-    <div class='mx-auto sm:flex'>
+    <div class='md:mx-auto mb-4 sm:flex'>
       <div class='sm:min-w-lg p-4 bg-gray-100 shadow-md rounded'>
         <div class='flex justify-between border-b-2 border-black'>
           <p class='font-semibold text-sm'><%= device.name %>
@@ -11,8 +11,8 @@
         </div>
         <div class='pt-4'>
           <div class='flex justify-between'>
-            <p class='font-semibold text-sm'>UUID</p>
-            <p class='font-thin text-xs'><%= device.uuid %></p>
+            <p class='md:w-64 font-semibold text-sm'>UUID</p>
+            <p class='md:w-64 font-thin text-xs'><%= device.uuid %></p>
           </div>
         </div>
         <div>
@@ -26,7 +26,7 @@
             <p class='text-sm font-semibold'>Newest events</p>
             <p class='font-thin text-xs'><%= pluralize(device.events.count, "total event") %></p>
           </div>
-          <ul class='w-full whitespace-no-wrap sm:w-auto overflow-auto'>
+          <ul class='w-full whitespace-no-wrap overflow-auto'>
             <% newest_events_for_device(device).each do |event| %>
               <li class='sm:flex sm:justify-between'>
                 <span class='text-xs font-hairline sm:mr-4'><%= event.description %></span>
