@@ -1,0 +1,43 @@
+.button {
+  @apply block p-1 rounded text-sm;
+
+  color: $default-button-fg-colour;
+  background-color: $default-button-bg-colour;
+}
+
+.button:hover {
+  background-color: $default-button-bg-hover-colour;
+}
+
+.button-primary {
+  @extend .button;
+
+  color: $primary-button-fg-colour;
+  background-color: $primary-button-bg-colour;
+}
+
+.button-primary:hover {
+  background-color: $primary-button-bg-hover-colour;
+}
+
+.button-secondary {
+  @extend .button;
+
+  color: $secondary-button-fg-colour;
+  background-color: $secondary-button-bg-colour;
+}
+
+.button-secondary:hover {
+  background-color: $secondary-button-bg-hover-colour;
+}
+
+.button-danger {
+  @extend .button;
+
+  color: $danger-button-fg-colour;
+  background-color: $danger-button-bg-colour;
+}
+
+.button-danger:hover {
+  background-color: $danger-button-bg-hover-colour;
+}
