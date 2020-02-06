@@ -102,6 +102,9 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.9.0)
+    exception_notification (4.4.0)
+      actionmailer (>= 4.0, < 7)
+      activesupport (>= 4.0, < 7)
     execjs (2.7.0)
     ffi (1.11.3)
     globalid (0.4.2)
@@ -249,6 +252,7 @@ DEPENDENCIES
   capistrano3-puma
   capybara (>= 2.15)
   devise
+  exception_notification
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   mini_racer
