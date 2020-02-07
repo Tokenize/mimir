@@ -10,5 +10,7 @@ class User < ApplicationRecord
 
   include UserAuthTokenGeneration
 
+  validates :time_zone, inclusion: { in: ActiveSupport::TimeZone.us_zones.collect(&:name) }
+
   after_create :regenerate_auth_token!
 end

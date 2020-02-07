@@ -30,7 +30,7 @@
             <% newest_events_for_device(device).each do |event| %>
               <li class='sm:flex sm:justify-between'>
                 <span class='text-xs font-hairline sm:mr-4'><%= event.description %></span>
-                <span class='text-xs font-hairline'><%= event.timestamp %></span>
+                <span class='text-xs font-hairline'><%= event.timestamp.in_time_zone(current_user.time_zone) %></span>
               </li>
             <% end %>
           </ul>
