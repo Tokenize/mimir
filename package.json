@@ -6,14 +6,17 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.19",
     "minimist": "^1.2.0",
+    "postcss": "^7",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0",
-    "tailwindcss": "^1.1.4",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
