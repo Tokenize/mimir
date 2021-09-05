@@ -5,9 +5,9 @@
   </div>
 <% end %>
 
-<% if flash[:error].present? %>
+<% if flash[:alert].present? %>
   <div class='w-auto m-4 p-4 bg-red-100 border-l-4 border-red-400' role='alert'>
     <p class='font-bold'>Error</p>
-    <p class='text-sm'><%= flash[:error] %></p>
+    <p class='text-sm'><%= flash[:alert] %></p>
   </div>
 <% end %>
