@@ -1,4 +1,4 @@
-<div class="w-screen absolute p-2 bottom-0 bg-gray-100">
+<div class="w-screen relative p-2 bottom-0 bg-gray-100">
   <div class="text-center font-thin text-xs">
     <% if user_signed_in? %>
       Last signed in at <%= current_user.last_sign_in_at.in_time_zone(current_user.time_zone).to_s(:long) %> from <%= current_user.last_sign_in_ip %>
