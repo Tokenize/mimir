@@ -1,5 +1,13 @@
-<div class='flex flex-row-reverse px-4 py-3'>
-</div>
+
+<% if @devices.none? %>
+  <div class='m-4 p-2 flex flex-row'>
+    <div class='mx-auto'>
+      It doesn't look like you have any devices configured.
+      You can <%= link_to 'add a new device', new_device_path, class: 'link' %>
+      to get started.
+    </div>
+  </div>
+<% end %>
 
 <div class='flex flex-col'>
   <% @devices.each do |device| %>
