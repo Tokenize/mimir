@@ -1,3 +1,10 @@
-<div class="flex m-4 p-2">
-  <h1>Welcome to Mimir!</h1>
+<div class="flex flex-col m-4 p-2">
+  <h1 class="text-xl">
+    Welcome to
+    <span class="font-medium">Mimir!</span>
+  </h1>
+  <p class="mt-2">
+    You can monitor your security devices and see the latest triggered events by
+    visiting the <%= link_to 'devices', devices_path, class: "link" %> page.
+  </p>
 </div>
