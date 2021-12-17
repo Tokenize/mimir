@@ -4,25 +4,25 @@
   <table class='table-fixed overflow-auto text-sm'>
     <thead>
       <tr class='text-justify text-xs'>
-        <th class='px-2 py-1 hidden md:table-cell'>Command</th>
-        <th class='px-2 py-1 hidden md:table-cell'>Data</th>
-        <th class='px-2 py-1'>Description</th>
-        <th class='px-2 py-1'>Timestamp</th>
-        <th class='px-2 py-1'>Priority</th>
-        <th class='px-2 py-1 hidden md:table-cell'>Partition</th>
-        <th class='px-2 py-1 hidden md:table-cell'>Zone</th>
+        <th class='p-2 hidden md:table-cell'>Command</th>
+        <th class='p-2 hidden md:table-cell'>Data</th>
+        <th class='p-2'>Description</th>
+        <th class='p-2'>Timestamp</th>
+        <th class='p-2'>Priority</th>
+        <th class='p-2 hidden md:table-cell'>Partition</th>
+        <th class='p-2 hidden md:table-cell'>Zone</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="border">
       <% @events.each do |event| %>
-        <tr class='text-xs'>
-          <td class='border hidden md:table-cell'><%= event.command %></td>
-          <td class='border hidden md:table-cell'><%= event.data %></td>
-          <td class='border'><%= event.description %></td>
-          <td class='border'><%= event.timestamp.in_time_zone(current_user.time_zone) %></td>
-          <td class='border'><%= event.priority %></td>
-          <td class='border hidden md:table-cell'><%= event.partition %></td>
-          <td class='border hidden md:table-cell'><%= event.zone %></td>
+        <tr class='text-xs odd:bg-gray-100'>
+          <td class='md:p-2 hidden md:table-cell'><%= event.command %></td>
+          <td class='md:p-2 hidden md:table-cell'><%= event.data %></td>
+          <td class='md:p-2'><%= event.description %></td>
+          <td class='md:p-2'><%= event.timestamp.in_time_zone(current_user.time_zone).to_s(:long) %></td>
+          <td class='md:p-2'><%= event.priority %></td>
+          <td class='md:p-2 hidden md:table-cell'><%= event.partition %></td>
+          <td class='md:p-2 hidden md:table-cell'><%= event.zone %></td>
         </tr>
       <% end %>
     </tbody>
