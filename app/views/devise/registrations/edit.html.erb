@@ -1,4 +1,6 @@
-<div class='flex justify-center md:mt-20'>
+<% content_for(:title, "Mimir - Edit Profile") %>
+
+<div class='flex justify-center mt-8'>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'w-full sm:max-w-lg bg-gray-100 z-10 shadow-md rounded p-8' }) do |f| %>
     <div class='flex items-center mb-3'>
       <div class='w-1/3'>

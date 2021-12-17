@@ -1,4 +1,4 @@
-<nav class='flex items-center justify-between px-4 py-3 bg-teal-900'>
+<nav class='flex items-center justify-between px-4 py-3 bg-teal-900 md:text-lg'>
   <div>
     <%= link_to('Mimir', root_path, class: 'text-gray-100 font-semibold') %>
   </div>
@@ -7,7 +7,7 @@
       <div class='flex items-center text-gray-100'>
         <%= link_to('Profile', edit_user_registration_path(current_user), class: 'px-1 py-1 block rounded hover:bg-teal-800') %>
         <%= link_to('Devices', devices_path, class: 'px-1 py-1 block rounded hover:bg-teal-800') %>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'px-1 py-1 ml-2 block rounded border border-gray-200 border-dotted hover:bg-teal-800') %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'px-1 py-1 md:ml-4 ml-2 block rounded border border-gray-200 border-dotted hover:bg-teal-800') %>
       </div>
     <% end %>
   </div>
