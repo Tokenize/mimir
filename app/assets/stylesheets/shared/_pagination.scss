@@ -1,0 +1,9 @@
+.pagination {
+  span.page {
+    @apply p-1;
+  };
+
+  span.active {
+      @apply border-b-2 border-gray-300;
+  }
+}
