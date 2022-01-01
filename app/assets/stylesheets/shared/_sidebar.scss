@@ -1,0 +1,15 @@
+.sidebar {
+  @apply hidden md:block w-44 h-screen mr-4 bg-gray-100 flex flex-col p-2;
+
+  .sidebar-link {
+    @apply mb-5;
+  }
+
+  .sidebar-link.active {
+    @apply border-r-2 border-gray-900;
+  }
+
+  .sidebar-link:hover {
+    @apply border-r-2 border-gray-300;
+  }
+}

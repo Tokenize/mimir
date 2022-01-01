@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   before_action :load_device, only: :index
 
   def index
+    @sidebar_entry = 'Devices'
     @pagy, @events = pagy(@device.events.order(timestamp: :desc))
   end
 
