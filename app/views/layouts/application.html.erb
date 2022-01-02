@@ -14,7 +14,13 @@
     <%= render partial: 'shared/header' %>
     <%= render partial: 'shared/alerts' %>
 
-    <%= yield %>
+    <div class='h-screen flex flex-row'>
+      <%= render partial: 'shared/sidebar' %>
+
+      <div class='w-full justify-center'>
+        <%= yield %>
+      </div>
+    </div>
 
     <%= render partial: 'shared/footer' %>
   </body>

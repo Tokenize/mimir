@@ -1,60 +1,62 @@
 <% content_for(:title, "Mimir - Devices") %>
 
-<% if @devices.none? %>
-  <div class='m-4 p-2 flex flex-row'>
-    <div class='mx-auto'>
-      It doesn't look like you have any devices configured.
-      You can <%= link_to 'add a new device', new_device_path, class: 'link' %>
+<div class='flex flex-col'>
+  <% if @devices.none? %>
+    <div class='m-4 p-2 flex flex-row'>
+      <div class='mx-auto'>
+        It doesn't look like you have any devices configured.
+        You can <%= link_to 'add a new device', new_device_path, class: 'link' %>
       to get started.
-    </div>
-  </div>
-<% end %>
-
-<div class='flex flex-col mt-8'>
-  <% @devices.each do |device| %>
-    <div class='md:mx-auto mb-8 sm:flex'>
-      <div class='sm:min-w-lg p-4 sm:pb-8 bg-gray-100 shadow-md rounded'>
-        <div class='flex justify-between border-b-2 border-black'>
-          <p class='font-semibold text-sm'><%= device.name %>
-          <p class='font-thin text-xs'><%= device_last_seen(device) %></p>
-        </div>
-        <div class='pt-4'>
-          <div class='flex justify-between'>
-            <p class='md:w-64 font-semibold text-sm'>UUID</p>
-            <p class='font-thin text-xs'><%= device.uuid %></p>
-          </div>
-        </div>
-        <div>
-          <div class='flex justify-between border-b-2 border-black'>
-            <p class='font-semibold text-sm'>Auth Token</p>
-            <p class='font-thin text-xs'><%= device.user.auth_token %></p>
-          </div>
-        </div>
-        <div class='pt-4'>
-          <div class='pb-1 flex justify-between'>
-            <p class='text-sm font-semibold'>Newest events</p>
-            <p class='font-thin text-xs'><%= pluralize(device.events.count, "total event") %></p>
-          </div>
-          <ul class='w-full whitespace-no-wrap overflow-auto'>
-            <% newest_events_for_device(device).each do |event| %>
-              <li class='sm:flex sm:justify-between'>
-                <span class='text-xs font-hairline sm:mr-4'><%= event.description %></span>
-                <span class='text-xs font-hairline'><%= event.timestamp.in_time_zone(current_user.time_zone) %></span>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <div class='pt-2 ml-2 mr-2 sm:p-0 flex sm:flex-col justify-between'>
-        <div>
-          <%= link_to('+ Device', new_device_path, class: 'button-primary inline-block sm:block mb-2') %>
-          <%= link_to('Edit', edit_device_path(device), class: 'button-secondary inline-block sm:block mb-2') %>
-          <%= link_to('Events', device_events_path(device), class: 'button inline-block sm:block') %>
-        </div>
-        <div>
-          <%= link_to('Delete', device_path(device), method: :delete, data: { confirm: 'Are you sure?'}, class: 'button-danger inline-block sm:block') %>
-        </div>
       </div>
     </div>
   <% end %>
+
+  <div class='flex flex-col mt-8'>
+    <% @devices.each do |device| %>
+      <div class='md:mx-auto mb-8 sm:flex'>
+        <div class='sm:min-w-lg p-4 sm:pb-8 bg-gray-100 shadow-md rounded'>
+          <div class='flex justify-between border-b-2 border-black'>
+            <p class='font-semibold text-sm'><%= device.name %>
+            <p class='font-thin text-xs'><%= device_last_seen(device) %></p>
+          </div>
+          <div class='pt-4'>
+            <div class='flex justify-between'>
+              <p class='md:w-64 font-semibold text-sm'>UUID</p>
+              <p class='font-thin text-xs'><%= device.uuid %></p>
+            </div>
+          </div>
+          <div>
+            <div class='flex justify-between border-b-2 border-black'>
+              <p class='font-semibold text-sm'>Auth Token</p>
+              <p class='font-thin text-xs'><%= device.user.auth_token %></p>
+            </div>
+          </div>
+          <div class='pt-4'>
+            <div class='pb-1 flex justify-between'>
+              <p class='text-sm font-semibold'>Newest events</p>
+              <p class='font-thin text-xs'><%= pluralize(device.events.count, "total event") %></p>
+            </div>
+            <ul class='w-full whitespace-no-wrap overflow-auto'>
+              <% newest_events_for_device(device).each do |event| %>
+                <li class='sm:flex sm:justify-between'>
+                  <span class='text-xs font-hairline sm:mr-4'><%= event.description %></span>
+                  <span class='text-xs font-hairline'><%= event.timestamp.in_time_zone(current_user.time_zone) %></span>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class='pt-2 ml-2 mr-2 sm:p-0 flex sm:flex-col justify-between'>
+          <div>
+            <%= link_to('+ Device', new_device_path, class: 'button-primary inline-block sm:block mb-2') %>
+            <%= link_to('Edit', edit_device_path(device), class: 'button-secondary inline-block sm:block mb-2') %>
+            <%= link_to('Events', device_events_path(device), class: 'button inline-block sm:block') %>
+          </div>
+          <div>
+            <%= link_to('Delete', device_path(device), method: :delete, data: { confirm: 'Are you sure?'}, class: 'button-danger inline-block sm:block') %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
