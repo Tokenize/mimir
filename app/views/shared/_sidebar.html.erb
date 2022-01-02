@@ -1,6 +1,8 @@
-<div class='sidebar'>
-  <ul class='mt-2 flex flex-col mt-4 p-2'>
-    <li class="sidebar-link <%= 'active' if sidebar_link_active?('Home', root_path) %>"><%= link_to 'Home', root_path %></li>
-    <li class="sidebar-link <%= 'active' if sidebar_link_active?('Devices', devices_path) %>"><%= link_to 'Devices', devices_path %></li>
-  </ul>
-</div>
+<% if signed_in? %>
+  <div class='sidebar'>
+    <ul class='flex flex-col mt-4 p-2'>
+      <li class="sidebar-link <%= 'active' if sidebar_link_active?('Home', root_path) %>"><%= link_to 'Home', root_path %></li>
+      <li class="sidebar-link <%= 'active' if sidebar_link_active?('Devices', devices_path) %>"><%= link_to 'Devices', devices_path %></li>
+    </ul>
+  </div>
+<% end %>
