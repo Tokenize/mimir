@@ -1,5 +1,5 @@
 .sidebar {
-  @apply hidden md:block w-44 h-screen mr-4 bg-gray-100 flex flex-col p-2;
+  @apply hidden md:block w-44 h-auto mr-4 bg-gray-100 flex flex-col p-2;
 
   .sidebar-link {
     @apply mb-5;

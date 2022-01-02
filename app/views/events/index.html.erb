@@ -1,34 +1,36 @@
 <% content_for(:title, "Mimir - Device Events") %>
 
-<div class='sm:w-full sm:flex sm:justify-center p-4'>
-  <table class='table-fixed overflow-auto text-sm'>
-    <thead>
-      <tr class='text-justify text-xs'>
-        <th class='p-2 hidden md:table-cell'>Command</th>
-        <th class='p-2 hidden md:table-cell'>Data</th>
-        <th class='p-2'>Description</th>
-        <th class='p-2'>Timestamp</th>
-        <th class='p-2'>Priority</th>
-        <th class='p-2 hidden md:table-cell'>Partition</th>
-        <th class='p-2 hidden md:table-cell'>Zone</th>
-      </tr>
-    </thead>
-    <tbody class="border">
-      <% @events.each do |event| %>
-        <tr class='text-xs odd:bg-gray-100'>
-          <td class='md:p-2 hidden md:table-cell'><%= event.command %></td>
-          <td class='md:p-2 hidden md:table-cell'><%= event.data %></td>
-          <td class='md:p-2'><%= event.description %></td>
-          <td class='md:p-2'><%= event.timestamp.in_time_zone(current_user.time_zone).to_s(:long) %></td>
-          <td class='md:p-2'><%= event.priority %></td>
-          <td class='md:p-2 hidden md:table-cell'><%= event.partition %></td>
-          <td class='md:p-2 hidden md:table-cell'><%= event.zone %></td>
+<div class='flex flex-col'>
+  <div class='sm:w-full sm:flex sm:justify-center m-4 p-2'>
+    <table class='table-fixed overflow-auto text-sm'>
+      <thead>
+        <tr class='text-justify text-xs'>
+          <th class='p-2 hidden md:table-cell'>Command</th>
+          <th class='p-2 hidden md:table-cell'>Data</th>
+          <th class='p-2'>Description</th>
+          <th class='p-2'>Timestamp</th>
+          <th class='p-2'>Priority</th>
+          <th class='p-2 hidden md:table-cell'>Partition</th>
+          <th class='p-2 hidden md:table-cell'>Zone</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody class="border">
+        <% @events.each do |event| %>
+          <tr class='text-xs odd:bg-gray-100'>
+            <td class='md:p-2 hidden md:table-cell'><%= event.command %></td>
+            <td class='md:p-2 hidden md:table-cell'><%= event.data %></td>
+            <td class='md:p-2'><%= event.description %></td>
+            <td class='md:p-2'><%= event.timestamp.in_time_zone(current_user.time_zone).to_s(:long) %></td>
+            <td class='md:p-2'><%= event.priority %></td>
+            <td class='md:p-2 hidden md:table-cell'><%= event.partition %></td>
+            <td class='md:p-2 hidden md:table-cell'><%= event.zone %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<div class='w-auto text-sm text-center'>
-  <%== pagy_nav(@pagy) %>
+  <div class='w-auto text-sm text-center'>
+    <%== pagy_nav(@pagy) %>
+  </div>
 </div>
