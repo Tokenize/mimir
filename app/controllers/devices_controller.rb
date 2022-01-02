@@ -1,5 +1,6 @@
 class DevicesController < ApplicationController
   before_action :load_device, only: %i(edit update destroy)
+  before_action :set_sidebar_entry, only: %i[new edit]
 
   def index
     @devices = current_user.devices.order(updated_at: :desc, last_seen_at: :desc)
@@ -44,5 +45,9 @@ class DevicesController < ApplicationController
 
   def load_device
     @device = current_user.devices.find(params[:id])
+  end
+
+  def set_sidebar_entry
+    @sidebar_entry = 'Devices'
   end
 end
