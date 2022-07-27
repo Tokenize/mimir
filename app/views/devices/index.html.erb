@@ -34,13 +34,13 @@
           <div class='pt-4'>
             <div class='pb-1 flex justify-between'>
               <p class='text-sm font-semibold'>Newest events</p>
-              <p class='font-thin text-xs'><%= pluralize(device.events.count, "total event") %></p>
+              <p class='font-thin text-xs'><%= pluralize(device.events.size, "total event") %></p>
             </div>
             <ul class='w-full whitespace-no-wrap overflow-auto'>
               <% newest_events_for_device(device).each do |event| %>
                 <li class='sm:flex sm:justify-between'>
                   <span class='text-xs font-hairline sm:mr-4'><%= event.description %></span>
-                  <span class='text-xs font-hairline'><%= event.timestamp.in_time_zone(current_user.time_zone) %></span>
+                  <span class='text-xs font-hairline'><%= event.timestamp.in_time_zone(current_user.time_zone).to_s(:long) %></span>
                 </li>
               <% end %>
             </ul>

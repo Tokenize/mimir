@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :device
+  belongs_to :device, counter_cache: true
   has_one :user, through: :device
 
   validates :command, :description, :device_id, :timestamp, presence: true
