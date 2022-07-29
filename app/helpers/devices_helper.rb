@@ -6,6 +6,6 @@ module DevicesHelper
   end
 
   def newest_events_for_device(device)
-    device.events.order(timestamp: :desc).limit(5)
+    device.events.order(id: :desc).limit(5)
   end
 end
